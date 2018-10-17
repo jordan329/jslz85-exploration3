@@ -1,0 +1,52 @@
+Journal
+
+Last week we explored Materialize css
+this week we will continue exploring Material Design as a front end design specification, by exploring react-materialize,
+a library of components made to bring materialize css to react development
+
+we'll start with out old project which uses create-react-app and is hosted on firebase.
+then we install react-materialize with npm
+"npm install react-materialize"
+and make sure our index.html file includes some links in the head and scripts in the body.
+
+HEAD 
+    Import Google Icon Font
+        href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+    Import materialize.css
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet"
+BODY  
+    Import jQuery before materialize.js
+        src="https://code.jquery.com/jquery-2.1.1.min.js"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"
+    And then your bundled js
+        src="path/to/your/bundle.js"
+
+
+//end of journal begining of last journal
+I started with a create-react-app project hosted on firebase as detailed in my previous exploration,
+I'll just be focused on explaining how to use Materialize css,
+NOT "react-materialize" which is materialize css styled react components.
+
+Start by going to https://materializecss.com/getting-started.html/ to download or access the cdn.
+
+Next take a look at the grid section to get a feel for how you would layout a webpage
+
+Materialize uses a 12 Column grid system similar to bootstrap
+
+Grids are placed in containers and all of materialize is implemented by class name definition on html elements,
+or in my case reacts JSX
+
+The text color can be changed with classname "color-text" look in the documentation to ensure the color you choose is supported
+
+the background color can be changed with classname "color" as long as the color is supported
+
+I really like the look of the card class name, it gives divs a raised look that brings the users attention to it.
+card combined with hoverable makes the divs stand out when a user hovers over one by appearing to increase its elevation by growing its box shadow.
+
+Copying the documentation for navbars and tweaking the colors links and text allows you to create a simple way to navigate the site very quickly.
+
+And lastly input's and icons are a breeze with just a few class names
+
+adding material-icons to a i tag and putting a supported icon between the i tags allows you to tac advantage of material icons across your site with no further imports.
+
+and materialize picks up on input elements and automatically changes them from boring inputs to beautiful interactive inputs
