@@ -21,32 +21,41 @@ BODY
     And then your bundled js
         src="path/to/your/bundle.js"
 
+and delete old references that may conflict with this version of materializecss
 
-//end of journal begining of last journal
-I started with a create-react-app project hosted on firebase as detailed in my previous exploration,
-I'll just be focused on explaining how to use Materialize css,
-NOT "react-materialize" which is materialize css styled react components.
+We are going to replace all of the classname="[materialize classes specified here]" to react-materialize components.
 
-Start by going to https://materializecss.com/getting-started.html/ to download or access the cdn.
+Starting with the <nav> tag replace that in "home.js" with <Navbar> and <NavItem> making sure first to use that the top of "home.js" an import statment for the new components
+    import {Navbar, NavItem} from "react-materialize"
 
-Next take a look at the grid section to get a feel for how you would layout a webpage
+Now lets change all div's with classname row and change them to <Row> making sure to add Row to the import at the top
 
-Materialize uses a 12 Column grid system similar to bootstrap
+then do the same with col to <Col>
+make sure to get rid of the the classnames on the new Col elements and instead use the props m="4" s="12" to use the grid sizing for each column to be evenly spaced
 
-Grids are placed in containers and all of materialize is implemented by class name definition on html elements,
-or in my case reacts JSX
+then replace the entire div with card class to the following 
+<Card
+    header={<CardTitle image='https://i.imgur.com/kUCMPWX.jpg'>Here are some Dogs</CardTitle>}
+    actions={[<a href="#e">This can be a link to a page with more information</a>]}>
+        Simple cards. are good at containing small bits of
+        information. this is convenient because it requires little
+        markup to use.
+</Card>
 
-The text color can be changed with classname "color-text" look in the documentation to ensure the color you choose is supported
+this is much less markup, the image, link and title are all specified as props to the component and react-materialize does the rest for us
 
-the background color can be changed with classname "color" as long as the color is supported
+Now continuing to the inputs if you replace the outermost row containing them with this
+<Row s='12'>
+    <Input s="12" m='6' label="First Name" >
+        <Icon>account_circle</Icon>
+    </Input>
+    <Input s="12" m='6' label="Phone Number" >
+        <Icon class="material-icons prefix">phone</Icon>
+    </Input>
+</Row>
 
-I really like the look of the card class name, it gives divs a raised look that brings the users attention to it.
-card combined with hoverable makes the divs stand out when a user hovers over one by appearing to increase its elevation by growing its box shadow.
+you can see that all of the formatting is done with props s and m
+ implementing the 12 column grid easily with very little markup
 
-Copying the documentation for navbars and tweaking the colors links and text allows you to create a simple way to navigate the site very quickly.
-
-And lastly input's and icons are a breeze with just a few class names
-
-adding material-icons to a i tag and putting a supported icon between the i tags allows you to tac advantage of material icons across your site with no further imports.
-
-and materialize picks up on input elements and automatically changes them from boring inputs to beautiful interactive inputs
+ This change from materializecss to react-materialize has made our home.js file go from just over 100 lines of code to just under 60 lines.
+ that makes it much quicker to read and understand allowing us to focus on functionality more and looks less when prototyping.
