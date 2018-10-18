@@ -2,3 +2,9 @@ Sources
 
 https://materializecss.com
 https://react-materialize.github.io/
+
+individual components explored
+https://react-materialize.github.io/#/navbar
+https://react-materialize.github.io/#/grid
+https://react-materialize.github.io/#/cards
+https://react-materialize.github.io/#/forms
